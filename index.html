@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>MyShop</title>
+    <style>
+        ul #carnav, #bicyclenav, #milinav, #watchnav{
+	        margin-bottom: 0;
+	        display:none;
+        }/* 세부 nav 숨기기*/
+        body {
+            margin: 0;
+            padding-top: 70px;
+        }
+        .slide-image {
+            width: 100%;
+        }/*슬라이드 이미지는 제일 크게*/
+        .thumbnail {
+            padding: 0;
+        }
+        footer {
+            margin: 50px 0;
+        }
+
+        a {
+            color: #337ab7;
+            text-decoration: none
+        }
+        * {
+            -webkit-box-sizing: border-box;
+        }/*기본 값, width 값을 컨텐츠 영역의 테두리까지 박스모델의 전체 너비 값으로 사용함.*/
+        
+        a:focus, a:hover {
+            color: #23527c;
+            text-decoration: underline
+        }
+
+        ol, ul {
+            margin-top: 0;
+            margin-bottom: 10px;
+            list-style:none;
+        }
+
+        ul li:hover #carnav {
+            margin-bottom: 0;
+            display:block;
+            list-style:none;
+        }
+        ul li:hover #bicyclenav {
+            margin-bottom: 0;
+            display:block;
+            list-style:none;
+        }
+        ul li:hover #milinav {
+            margin-bottom: 0;
+            display:block;
+            list-style:none;
+        }
+        ul li:hover #watchnav {
+            margin-bottom: 0;
+            display:block;
+            list-style:none;
+        }
+        ul li ul li a{
+            color: #333;
+            background-color: #fff;
+            text-decoration:none;
+        }
+
+        .container {
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto
+        }
+        
+        .nav {
+            padding-left: 0;
+            margin-bottom: 0;
+            list-style: none
+        }
+
+        .nav>li {
+            position: relative;
+            display: block
+        }
+
+        .nav>li>a {
+            position: relative;
+            display: block;
+            padding: 10px 15px
+        }
+
+        .nav>li>a:focus, .nav>li>a:hover {
+            text-decoration: none;
+            background-color: #eee
+        }
+
+        .navbar {
+            position: relative;
+            min-height: 50px;
+            margin-bottom: 20px;
+            border: 1px solid transparent
+        }
+        
+        .navbar-fixed-bottom, .navbar-fixed-top {
+            position: fixed;
+            right: 0;
+            left: 0;
+        }
+        .navbar-fixed-top {
+            top: 0;
+            border-width: 0 0 1px
+        }
+        .navbar-brand {
+            float: left;
+            height: 50px;
+            padding: 15px 15px;
+            font-size: 30px;
+            line-height: 20px
+        }
+
+        .navbar-brand:focus, .navbar-brand:hover {
+            text-decoration: none
+        }
+        .navbar-nav {
+            float: right;
+            margin: 0
+        }
+        .navbar-nav>li {
+            float: left
+        }
+        .navbar-inverse {
+            background-color: #222;
+            border-color: #080808
+        }
+
+        .navbar-inverse .navbar-brand {
+            color: #9d9d9d
+        }
+
+        .navbar-inverse .navbar-brand:focus, .navbar-inverse .navbar-brand:hover
+            {
+            color: #fff;
+            background-color: transparent
+        }
+
+        .navbar-inverse .navbar-text {
+            color: #9d9d9d
+        }
+
+        .navbar-inverse .navbar-nav>li>a {
+            color: #9d9d9d
+        }
+
+        .navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover
+            {
+            color: #fff;
+            background-color: transparent
+        }
+        .row .col-sm-4 col-lg-4 col-md-4{
+            display: flex;
+        }
+        .row .thumbnail{
+            flex : 1;
+        }
+        .thumbnail{
+            padding: 4px;
+            margin-bottom: 20px;
+            line-height: 1.42857143;
+            border: 1px solid #ddd;
+            max-width: 400px;
+            margin-left:auto;
+            margin-right:auto;
+        }
+
+        .list-group-item{
+            position: left;
+            display: block;
+            padding: 10px 15px;
+            margin-bottom: -1px;
+            background-color: #fff;
+            border: 1px solid #ddd
+        }
+        .list-group-sub{
+            position: left;
+            display: block;
+            padding: 10px 15px;
+            margin-bottom: -1px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+        }
+
+        a.list-group-item {
+            color: #555
+        }
+
+        a.list-group-item .list-group-item-heading {
+            color: #333
+        }
+
+        .carousel-inner>.item {
+            position: relative;
+            display: none;
+            border: 1px solid #ddd;
+        }
+
+        .carousel-inner>.active, .carousel-inner>.next, .carousel-inner>.prev {
+            display: block
+        }
+        
+        @media (max-width : 699px){
+            .body{
+                max-width : 500;
+            }
+        }
+        @media (min-width : 798px){
+            .body{
+                max-width: 1000;
+            }
+        }
+    </style> 
+</head>
+<body>
+    <!--  헤더 -->
+    <header class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">MyShop</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">Login</a>
+                    </li>
+                    <li>
+                        <a href="#">Join</a>
+                    </li>
+                    <li>
+                        <a href="#">MyPage</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <!--  헤더 종료  -->
+    
+    
+    <!--  네비게이션  -->
+    <div class="container">
+        <nav class="list-group">
+         <ul>
+            <li><a href="#" class="list-group-item">Car</a>
+                <ul id="carnav">
+                    <li><a href="#" class="list-group-sub">Compact Car</a></li>
+                    <li><a href="#" class="list-group-sub">S.U.V</a></li>
+                    <li><a href="#" class="list-group-sub">Sedan</a></li>
+                    <li><a href="#" class="list-group-sub">Sports Car</a></li>
+                    <li><a href="#" class="list-group-sub">Informaion</a></li>
+                </ul>
+                </li>
+            <li ><a href="#" class="list-group-item">Bicycle</a>
+                <ul id="bicyclenav">
+                    <li><a href="#" class="list-group-sub">MTB</a></li>
+                    <li><a href="#" class="list-group-sub">Road</a></li>
+                    <li><a href="#" class="list-group-sub">Hybrid</a></li>
+                    <li><a href="#" class="list-group-sub">Informaion</a></li>
+                </ul>
+                </li>
+            <li ><a href="#" class="list-group-item">Clothes</a>
+                <ul id="milinav">
+                    <li><a href="#" class="list-group-sub">Tops</a></li>
+                    <li><a href="#" class="list-group-sub">Bottom</a></li>
+                    <li><a href="#" class="list-group-sub">Shoes</a></li>
+                    <li><a href="#" class="list-group-sub">Informaion</a></li>
+                </ul>
+                </li>
+            <li ><a href="#" class="list-group-item">Watch</a>
+                <ul id="watchnav">
+                    <li><a href="#" class="list-group-sub">Analog</a></li>
+                    <li><a href="#" class="list-group-sub">Digital</a></li>
+                    <li><a href="#" class="list-group-sub">Informaion</a></li>
+                </ul>
+                </li>
+           </ul>
+        </nav>
+    </div>
+    <!--  네비게이션 종료 -->
+    <!-- content -->
+    <section class="container">
+        <article class="row carousel-holder">
+            <div class="col-md-12">
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <img class="slide-image" src="img/images.jpg" alt="">
+                        </div>
+                        <div class="item">
+                            <img class="slide-image" src="img/images2.jpg" alt="">
+                        </div>
+                        <div class="item">
+                            <img class="slide-image" src="img/images3.gif" alt="">
+                        </div>
+                    </div>
+                    <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+                </div>
+            </div>
+
+        </article>
+
+        <article class="row">
+
+            <div class="col-sm-4 col-lg-4 col-md-4">
+                <div class="thumbnail">
+                    <img src="img/sub1.jpg" alt="">
+                    <div class="caption">
+                        <h4 class="pull-right">$2,135,994</h4>
+                        <h4><a href="#">First Product</a>
+                        </h4>
+                        <p>See more snippets like this online store item at</p>
+                    </div>
+                    <div class="viewCount">
+                        <p class="pull-right">15 reviews</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4 col-lg-4 col-md-4">
+                <div class="thumbnail">
+                    <img src="img/sub2.jpg" alt="">
+                    <div class="caption">
+                        <h4 class="pull-right">$164.99</h4>
+                        <h4><a href="#">Second Product</a>
+                        </h4>
+                        <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                    <div class="viewCount">
+                        <p class="pull-right">12 reviews</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4 col-lg-4 col-md-4">
+                <div class="thumbnail">
+                    <img src="img/sub3.jpg" alt="">
+                    <div class="caption">
+                        <h4 class="pull-right">$74.99</h4>
+                        <h4><a href="#">Third Product</a>
+                        </h4>
+                        <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                    <div class="viewCount">
+                        <p class="pull-right">31 reviews</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </section>
+    <!-- content 종료-->
+    
+    <!-- footer -->
+    <footer>
+        <div class="row">
+            <p>Copyright &copy; MyShop 2018</p>
+        </div>
+    </footer>
+    <!-- footer종료 -->
+</body>
+</html>
